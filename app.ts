@@ -9,6 +9,7 @@ import { authMiddleware } from "./src/features/auth/auth.middleware";
 import { AuthRouter } from "./src/features/auth/auth.controller";
 import { UserRouter } from "./src/features/user/user.controller";
 import { ReviewRouter } from "./src/features/review/review.controller";
+import { AdminRouter } from "./src/features/admin/admin.controller";
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/v1/auth", AuthRouter);
+app.use("/api/v1/admin", AdminRouter);
 app.use("/api/v1/users", authMiddleware, UserRouter);
 app.use("/api/v1/reviews", ReviewRouter);
 
